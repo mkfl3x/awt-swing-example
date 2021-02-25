@@ -3,7 +3,7 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class MainFrame {
+public class Application {
 
     private final JTextField firstOperand = getTextField();
 
@@ -19,7 +19,7 @@ public class MainFrame {
         return field;
     }
 
-    public MainFrame() {
+    public Application() {
         sumButton.addActionListener(e -> {
             final int sum = Integer.parseInt(firstOperand.getText()) + Integer.parseInt(secondOperand.getText());
             resultField.setText(Integer.toString(sum));
