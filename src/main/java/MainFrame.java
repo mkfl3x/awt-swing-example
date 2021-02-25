@@ -1,11 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class MainFrame implements ActionListener {
+public class MainFrame {
+
+    private final JTextField firstOperand = getTextField();
+
+    private final JTextField secondOperand = getTextField();
+
+    private final JTextField resultField = getTextField();
+
+    private final JButton sumButton = new JButton("+");
 
     private JTextField getTextField() {
         JTextField field = new JTextField(10);
@@ -13,13 +19,11 @@ public class MainFrame implements ActionListener {
         return field;
     }
 
-    private final JTextField firstOperand = getTextField();
-    private final JTextField secondOperand = getTextField();
-    private final JTextField resultField = getTextField();
-
     public MainFrame() {
-        JButton sumButton = new JButton("+");
-        sumButton.addActionListener(this);
+        sumButton.addActionListener(e -> {
+            final int sum = Integer.parseInt(firstOperand.getText()) + Integer.parseInt(secondOperand.getText());
+            resultField.setText(Integer.toString(sum));
+        });
 
         JPanel panel = new JPanel();
         panel.add(firstOperand);
@@ -37,9 +41,19 @@ public class MainFrame implements ActionListener {
         frame.setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        final int sum = Integer.parseInt(this.firstOperand.getText()) + Integer.parseInt(this.secondOperand.getText());
-        resultField.setText(Integer.toString(sum));
+    public JTextField getFirstOperand() {
+        return firstOperand;
+    }
+
+    public JTextField getSecondOperand() {
+        return secondOperand;
+    }
+
+    public JTextField getResultField() {
+        return resultField;
+    }
+
+    public JButton getSumButton() {
+        return sumButton;
     }
 }
