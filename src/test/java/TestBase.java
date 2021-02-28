@@ -18,8 +18,10 @@ abstract public class TestBase {
     }
 
     public void click(Component component) {
+        int width = component.getWidth();
+        int height = component.getHeight();
         Point point = component.getLocationOnScreen();
-        robot.mouseMove(point.x, point.y);
+        robot.mouseMove(point.x + width / 2, point.y + height / 2);
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         robot.delay(1000);
