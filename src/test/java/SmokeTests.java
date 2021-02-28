@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SmokeTests extends TestBase {
 
     @ParameterizedTest
-    @CsvSource(value = {"2:2:4", "2:3:5", "0:7:7", "7:0:7", "-2:-2:-4", "-5:2:-3", "-2:4:2"}, delimiter = ':')
+    @CsvSource(value = {"1:2:3", "-1:-2:-3", "-2:4:2", "0:0:0"}, delimiter = ':')
     void positiveCases(String first, String second, String result) {
         input(application.getFirstOperand(), first);
         input(application.getSecondOperand(), second);
