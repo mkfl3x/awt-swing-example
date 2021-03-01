@@ -14,7 +14,7 @@ abstract public class TestBase {
     private void beforeEach() throws AWTException {
         application = new Application();
         robot = new Robot();
-        robot.delay(2000);
+        robot.delay(1000);
     }
 
     public void click(Component component) {
