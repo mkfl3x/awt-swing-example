@@ -12,5 +12,6 @@ class SmokeTests extends TestBase {
         input(application.getSecondOperand(), second);
         click(application.getSumButton());
         assertEquals(result, read(application.getResultField()));
+        makeScreenshot(application.getResultField());
     }
 }
